@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+
+{% block title %} Marks Details {% endblock %}
+{% block head %}
+<script src="{{ url_for('static', filename='main.js') }}"></script>
+{% endblock %}
+
+{% block content %}
+
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+<div class="container">
+  <div class=flashes>
+    {% for message in messages %}
+    <span>{{ message }}</span>
+    {% endfor %}
+  </div>
+</div>
+{% endif %}
+{% endwith %}
+
+<h1 class="text-center">Marks Details</h1>
+<div class="container">
+  <form class="row g-3" action="" method="POST" id="marksForm">
+    <div class="col-md-3 ">
+      <label for="inputRollNo" class="form-label">Roll No</label>
+      <input type="text" class="form-control" name="rollno" id="roll" placeholder="Roll No">
+    </div>
+
+    <div></div>
+    <div class="col-md-3">
+      <label for="inputFirstName" class="form-label">First Name</label>
+      <input type="text" class="form-control" name="fname" id="fname" placeholder="First Name">
+    </div>
+    <div class="col-md-3">
+      <label for="inputMiddletName" class="form-label">Middle Name</label>
+      <input type="text" class="form-control" name="mname" id="mname" placeholder="Middle Name">
+    </div>
+    <div class="col-md-3">
+      <label for="inputLastName" class="form-label">Last Name</label>
+      <input type="text" class="form-control" name="lname" id="lname" placeholder="Last Name">
+    </div>
+    <div></div>
+
+
+    <div class="col-3">
+      <label for="inputMath" class="form-label">Marks in Math</label>
+      <input type="text" class="form-control" name="marksM" id="inputMath" placeholder="Math Marks">
+    </div>
+    <div class="col-3">
+      <label for="inputPhysics" class="form-label">Marks in Physics</label>
+      <input type="text" class="form-control" name="marksP" id="inputPhysics" placeholder="Physics Marks">
+    </div>
+    <div class="col-3">
+      <label for="inputChemistry" class="form-label">Marks in Chemistry</label>
+      <input type="text" class="form-control" name="marksC" id="inputChemistry" placeholder="Chemistry Marks">
+    </div>
+    <div class="col-12">
+      <label>Total Marks: </label>
+      <output id="total"></output>
+    </div>
+    <div class="col-12">
+      <label>Percentage: </label>
+      <output id="percentage"></output>
+    </div>
+
+    <div class="col-12">
+      <button type="submit" id="submit" name="submit" class="btn btn-primary">Submit</button>
+    </div>
+  </form>
+</div>
+
+
+{% endblock %}
